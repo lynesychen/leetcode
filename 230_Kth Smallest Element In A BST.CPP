@@ -13,13 +13,15 @@ class Solution(object):
         :rtype: int
         """
         count = []
-        self.helper(root, count)
+        self.helper(root, count, k)
         return count[k-1]
         
-    def helper(self, node, count):
+    def helper(self, node, count, k):
         if not node:
             return
         
-        self.helper(node.left, count)
+        self.helper(node.left, count, k)
         count.append(node.val)
-        self.helper(node.right, count)
+        if(len(count)>=k):
+            return
+        self.helper(node.right, count, k)

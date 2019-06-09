@@ -12,5 +12,6 @@ public:
             paper += hash[i];
             if(paper >= i) return i;
         }
+        return 0;
     }
 };
